@@ -13,10 +13,10 @@ RUN apt-get update && \
     apt-get autoremove -y
 
 # Assumes Dockerfile lives in root of the git repo. Pull source files into container
-ADD https://github.com/broadinstitute/picard/archive/2.20.1.tar.gz /usr/picard/
-WORKDIR /usr/picard
+ADD https://github.com/broadinstitute/picard/archive/2.20.1.tar.gz /usr/
+WORKDIR /usr/
 RUN tar xzvf 2.20.1.tar.gz
-WORKDIR /usr/picard/2.20.1
+WORKDIR /usr/picard-2.20.1
 
 # Build the distribution jar, clean up everything else
 RUN ./gradlew ${build_command} && \
